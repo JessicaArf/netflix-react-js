@@ -14,7 +14,16 @@ export const Main = () => {
         })
     }, [])
 
-    console.log(movie)
+    const sliceString = (str, num) => {
+        if(str?.length > num){
+            return str.slice(0, num) + "..."
+        }
+        else {
+            return str
+        }
+    }
+
+    // console.log(movie)
 
 
     return (
@@ -31,7 +40,7 @@ export const Main = () => {
                     <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Watch Later</button>
                 </div>
                 <span className='text-gray-400 text-sm'>Lançado em: {movie?.release_date}</span>
-                <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray'>{movie?.overview}</p>
+                <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray'>{sliceString( movie?.overview, 200)}</p>
             </div>
         </div>
     )
